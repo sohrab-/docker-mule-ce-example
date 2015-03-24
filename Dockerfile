@@ -46,6 +46,8 @@ RUN useradd mule && \
     chown -RL mule /opt/mule
 ENV RUN_AS_USER mule
 
+VOLUME /opt/mule/logs
+
 # run server
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
