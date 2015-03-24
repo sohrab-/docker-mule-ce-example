@@ -47,6 +47,7 @@ RUN useradd mule && \
 ENV RUN_AS_USER mule
 
 VOLUME /opt/mule/logs
+EXPOSE 9000
 
 # run server
 COPY start.sh /start.sh
