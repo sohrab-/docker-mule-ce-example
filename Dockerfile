@@ -9,7 +9,7 @@ ENV MULE_VERSION 3.6.1
 
 # install supporting tools
 RUN apt-get update && \
-    apt-get install -y procps wget && \
+    apt-get install -y procps ruby wget && \
     apt-get clean && \
     apt-get purge 
 
@@ -50,6 +50,7 @@ VOLUME /opt/mule/logs
 EXPOSE 9000
 
 # run server
+COPY sample-app.properties.erb /build/sample-app.properties.erb
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 CMD ["/start.sh"]
