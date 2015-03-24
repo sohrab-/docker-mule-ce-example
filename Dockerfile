@@ -41,6 +41,11 @@ ENV PATH $PATH:$MULE_HOME/bin
 # install Mule app
 COPY sample-app.zip /opt/mule/apps/
 
+# run Mule server as non-root
+RUN useradd mule && \
+    chown -RL mule /opt/mule
+ENV RUN_AS_USER mule
+
 # run server
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
