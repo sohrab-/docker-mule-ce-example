@@ -36,4 +36,6 @@ ENV PATH $PATH:$MULE_HOME/bin
 COPY sample-app.zip /opt/mule/apps/
 
 # run server
-CMD ["mule"]
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
